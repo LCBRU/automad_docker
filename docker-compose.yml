@@ -1,8 +1,16 @@
-version: '2'
+version: '3'
 
 services:
   apache:
     restart: always
-    build: ./apache
+    build:
+      context: ./apache
+      args:                                                                      
+        THEME: brc_automad_theme
     ports:
       - "3000:80"
+    volumes:
+      - ./config:/var/www/html/config/:Z
+      - ./cache:/var/www/html/cache/:Z
+      - ./pages:/var/www/html/pages/:Z
+      - ./shared:/var/www/html/shared/:Z
