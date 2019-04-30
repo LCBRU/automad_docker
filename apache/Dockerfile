@@ -15,9 +15,13 @@ RUN rm -fR /var/www/html
 
 ADD https://automad.org/download automad.zip
 RUN unzip automad.zip
+RUN rm automad.zip
 RUN mv marc* html
 
 RUN rm -fR html/packages/*
 ADD https://github.com/LCBRU/${THEME}/archive/master.zip ${THEME}.zip
 RUN unzip ${THEME}.zip
+RUN rm ${THEME}.zip
 RUN mv ${THEME}-master html/packages/${THEME}
+
+RUN chown -R www-data:www-data /var/www/html/cache

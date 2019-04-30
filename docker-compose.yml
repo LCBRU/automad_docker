@@ -8,9 +8,8 @@ services:
       args:                                                                      
         THEME: brc_automad_theme
     ports:
-      - "3000:80"
+      - "${PORT}:80"
     volumes:
-      - ./config:/var/www/html/config/:Z
-      - ./cache:/var/www/html/cache/:Z
-      - ./pages:/var/www/html/pages/:Z
-      - ./shared:/var/www/html/shared/:Z
+      - ${CONFIG}:/var/www/html/config/:Z
+      - ${PAGES}:/var/www/html/pages/:Z
+      - ${SHARED}:/var/www/html/shared/:Z
