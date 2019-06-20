@@ -5,7 +5,7 @@ COPY php.ini $PHP_INI_DIR/
 
 ARG THEME
 
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y zip libjpeg-dev libpng-dev
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y zip libjpeg-dev libpng-dev vim
 
 RUN a2enmod rewrite
 RUN docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr
