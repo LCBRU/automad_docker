@@ -15,7 +15,8 @@ RUN docker-php-ext-install exif
 WORKDIR /var/www/
 RUN rm -fR /var/www/html
 
-ADD https://automad.org/download automad.zip
+# ADD https://automad.org/download automad.zip
+ADD https://bitbucket.org/marcantondahmen/automad/get/1.2.5.zip automad.zip
 RUN unzip automad.zip
 RUN rm automad.zip
 RUN mv marc* html
