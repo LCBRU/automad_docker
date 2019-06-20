@@ -24,4 +24,6 @@ RUN unzip ${THEME}.zip
 RUN rm ${THEME}.zip
 RUN mv ${THEME}-master html/packages/${THEME}
 
+COPY php.ini $PHP_INI_DIR/conf.d/
+
 RUN chown -R www-data:www-data /var/www/html/cache
