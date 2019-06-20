@@ -1,6 +1,8 @@
 FROM php:7-apache
 LABEL maintainer="Richard Bramley <rabramley@gmail.com>"
 
+COPY php.ini $PHP_INI_DIR/
+
 ARG THEME
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y zip libjpeg-dev libpng-dev
@@ -23,7 +25,5 @@ ADD https://github.com/LCBRU/${THEME}/archive/master.zip ${THEME}.zip
 RUN unzip ${THEME}.zip
 RUN rm ${THEME}.zip
 RUN mv ${THEME}-master html/packages/${THEME}
-
-COPY php.ini $PHP_INI_DIR/
 
 RUN chown -R www-data:www-data /var/www/html/cache
