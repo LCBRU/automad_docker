@@ -13,3 +13,4 @@ services:
       - ${CONFIG}:/var/www/html/config/:Z
       - ${PAGES}:/var/www/html/pages/:Z
       - ${SHARED}:/var/www/html/shared/:Z
+      - ${CACHE}:/var/www/html/cache/:Z
